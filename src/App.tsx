@@ -33,6 +33,11 @@ import Documents from "./pages/superadmin/Documents";
 import Operations from "./pages/superadmin/Operations";
 import Notifications from "./pages/superadmin/Notifications";
 import HRMS from "./pages/superadmin/HRMS";
+import CRM from "./pages/superadmin/CRM";
+import ERP from "./pages/superadmin/ERP";
+import Billing from "./pages/superadmin/Billing";
+import Reports from "./pages/superadmin/Reports";
+import Settings from "./pages/superadmin/Settings";
 
 // Supervisor Pages
 import Tasks from "./pages/supervisor/Tasks";
@@ -80,11 +85,11 @@ const App = () => (
               <Route path="documents" element={<Documents />} />
               <Route path="operations" element={<Operations />} />
               <Route path="notifications" element={<Notifications />} />
-              <Route path="crm" element={<div className="p-6"><h1 className="text-2xl font-bold">CRM</h1></div>} />
-              <Route path="erp" element={<div className="p-6"><h1 className="text-2xl font-bold">ERP</h1></div>} />
-              <Route path="billing" element={<div className="p-6"><h1 className="text-2xl font-bold">Billing & Finance</h1></div>} />
-              <Route path="reports" element={<div className="p-6"><h1 className="text-2xl font-bold">Reports</h1></div>} />
-              <Route path="settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1></div>} />
+              <Route path="crm" element={<CRM />} />
+              <Route path="erp" element={<ERP />} />
+              <Route path="billing" element={<Billing />} />
+              <Route path="reports" element={<Reports />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
 
             {/* Admin Routes */}

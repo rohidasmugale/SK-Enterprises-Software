@@ -248,7 +248,7 @@ const Managers = () => {
                 </TableHeader>
                 <TableBody>
                   {tasks.map((task) => {
-                    const manager = managers.find(m => m.id === task.assignedTo);
+                    const manager = managers.find(m => m.id.toString() === task.assignedTo);
                     return (
                       <TableRow key={task.id}>
                         <TableCell className="font-medium">
@@ -371,13 +371,13 @@ const Managers = () => {
                         <SelectTrigger>
                           <SelectValue placeholder="Select manager" />
                         </SelectTrigger>
-                        <SelectContent>
-                          {managers.map((manager) => (
-                            <SelectItem key={manager.id} value={manager.id}>
-                              {manager.name} - {manager.department}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
+                      <SelectContent>
+                        {managers.map((manager) => (
+                          <SelectItem key={manager.id} value={manager.id.toString()}>
+                            {manager.name} - {manager.department}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
                       </Select>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
@@ -503,7 +503,7 @@ const Managers = () => {
                         size="sm"
                         onClick={() => {
                           setEditingTask(null);
-                          setTaskForm(prev => ({ ...prev, assignedTo: manager.id }));
+                          setTaskForm(prev => ({ ...prev, assignedTo: manager.id.toString() }));
                           setTaskDialogOpen(true);
                         }}
                       >

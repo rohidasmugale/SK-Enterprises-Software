@@ -365,7 +365,7 @@ const Employees = () => {
                       </SelectTrigger>
                       <SelectContent>
                         {employees.map((employee) => (
-                          <SelectItem key={employee.id} value={employee.id}>
+                          <SelectItem key={employee.id} value={employee.id.toString()}>
                             {employee.name} - {employee.role} ({employee.site})
                           </SelectItem>
                         ))}
