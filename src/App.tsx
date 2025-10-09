@@ -26,6 +26,7 @@ import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 
 // Super Admin Pages
 import UsersRoles from "./pages/superadmin/UsersRoles";
+import UsersRolesManagement from "./pages/superadmin/UsersRolesManagement";
 import Managers from "./pages/superadmin/Managers";
 import Supervisors from "./pages/superadmin/Supervisors";
 import Employees from "./pages/superadmin/Employees";
@@ -38,6 +39,25 @@ import ERP from "./pages/superadmin/ERP";
 import Billing from "./pages/superadmin/Billing";
 import Reports from "./pages/superadmin/Reports";
 import Settings from "./pages/superadmin/Settings";
+
+// Admin Pages
+import AdminProfile from "./pages/admin/Profile";
+import AdminTeam from "./pages/admin/Team";
+import AdminTasks from "./pages/admin/Tasks";
+import AdminReports from "./pages/admin/AdminReports";
+import AdminLeave from "./pages/admin/Leave";
+
+// Manager Pages
+import ManagerProfile from "./pages/manager/Profile";
+import ManagerSupervisors from "./pages/manager/Supervisors";
+import ManagerTasks from "./pages/manager/ManagerTasks";
+import ManagerReports from "./pages/manager/ManagerReports";
+import ManagerLeave from "./pages/manager/Leave";
+
+// Supervisor Pages
+import SupervisorProfile from "./pages/supervisor/Profile";
+import SupervisorReports from "./pages/supervisor/SupervisorReports";
+import SupervisorLeave from "./pages/supervisor/Leave";
 
 // Supervisor Pages
 import Tasks from "./pages/supervisor/Tasks";
@@ -77,7 +97,7 @@ const App = () => (
               }
             >
               <Route path="dashboard" element={<SuperAdminDashboard />} />
-              <Route path="users" element={<UsersRoles />} />
+              <Route path="users" element={<UsersRolesManagement />} />
               <Route path="managers" element={<Managers />} />
               <Route path="supervisors" element={<Supervisors />} />
               <Route path="employees" element={<Employees />} />
