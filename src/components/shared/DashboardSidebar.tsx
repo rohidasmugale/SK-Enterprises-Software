@@ -32,9 +32,9 @@ const getSidebarItems = (role: UserRole) => {
       return [
         ...baseItems,
         { name: "Users & Roles", icon: UserCog, path: "users" },
-        { name: "Managers", icon: Briefcase, path: "managers" },
-        { name: "Supervisors", icon: Shield, path: "supervisors" },
-        { name: "Employees", icon: Users, path: "employees" },
+        // { name: "Managers", icon: Briefcase, path: "managers" },
+        // { name: "Supervisors", icon: Shield, path: "supervisors" },
+        // { name: "Employees", icon: Users, path: "employees" },
         { name: "HRMS", icon: Users, path: "hrms" },
         { name: "CRM", icon: Building2, path: "crm" },
         { name: "ERP", icon: ClipboardList, path: "erp" },
