@@ -1,9 +1,11 @@
+import { useOutletContext } from "react-router-dom";
 import { DashboardHeader } from "@/components/shared/DashboardHeader";
 import { StatCard } from "@/components/shared/StatCard";
 import { Users, Shield, Building2, Briefcase } from "lucide-react";
 import { dashboardStats } from "@/utils/dummyData";
 
 const AdminDashboard = () => {
+  const { onMenuClick } = useOutletContext<{ onMenuClick: () => void }>();
   const stats = dashboardStats.admin;
 
   return (
@@ -11,6 +13,7 @@ const AdminDashboard = () => {
       <DashboardHeader 
         title="Admin Dashboard" 
         subtitle="System administration and management"
+        onMenuClick={onMenuClick}
       />
 
       <div className="p-6 space-y-6">

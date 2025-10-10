@@ -100,14 +100,20 @@ const getSidebarItems = (role: UserRole) => {
 
 interface DashboardSidebarProps {
   collapsed?: boolean;
+  mobileOpen?: boolean;
+  onMobileClose?: () => void;
 }
 
-export const DashboardSidebar = ({ collapsed: initialCollapsed = false }: DashboardSidebarProps) => {
+export const DashboardSidebar = ({ 
+  collapsed: initialCollapsed = false,
+  mobileOpen = false,
+  onMobileClose 
+}: DashboardSidebarProps) => {
   const { role, user, logout } = useRole();
   const sidebarItems = getSidebarItems(role);
   const basePath = `/${role}`;
   
-  // Manage collapsed state with localStorage persistence
+  // Manage collapsed state with localStorage persistence (desktop only)
   const [collapsed, setCollapsed] = useState(() => {
     const stored = localStorage.getItem('sidebar-collapsed');
     return stored ? JSON.parse(stored) : initialCollapsed;
@@ -122,22 +128,41 @@ export const DashboardSidebar = ({ collapsed: initialCollapsed = false }: Dashbo
   };
 
   return (
-    <motion.div
-      initial={{ x: -20, opacity: 0 }}
-      animate={{ x: 0, opacity: 1, width: collapsed ? "4rem" : "16rem" }}
-      transition={{ duration: 0.3 }}
-      className={cn(
-        "h-screen bg-sidebar text-sidebar-foreground border-r border-sidebar-border flex flex-col relative"
+    <>
+      {/* Mobile Overlay */}
+      {mobileOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onMobileClose}
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+        />
       )}
-    >
-      {/* Toggle Button */}
+
+      {/* Sidebar */}
+      <motion.aside
+        initial={{ x: -20, opacity: 0 }}
+        animate={{ 
+          x: mobileOpen ? 0 : (window.innerWidth < 1024 ? -280 : 0),
+          opacity: 1,
+          width: collapsed && window.innerWidth >= 1024 ? "4rem" : "16rem"
+        }}
+        transition={{ duration: 0.3 }}
+        className={cn(
+          "h-screen bg-sidebar text-sidebar-foreground border-r border-sidebar-border flex flex-col relative z-50",
+          "fixed lg:sticky top-0 left-0",
+          !mobileOpen && "hidden lg:flex"
+        )}
+      >
+      {/* Toggle Button (Desktop Only) */}
       <Button
         variant="ghost"
         size="icon"
         onClick={toggleSidebar}
         className={cn(
           "absolute -right-3 top-6 z-50 h-6 w-6 rounded-full border border-sidebar-border bg-sidebar shadow-md hover:bg-sidebar-accent",
-          "transition-all duration-300"
+          "transition-all duration-300 hidden lg:flex"
         )}
       >
         {collapsed ? (
@@ -148,12 +173,12 @@ export const DashboardSidebar = ({ collapsed: initialCollapsed = false }: Dashbo
       </Button>
 
       {/* Header */}
-      <div className="p-6 border-b border-sidebar-border">
+      <div className="p-4 md:p-6 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
             <Shield className="h-6 w-6 text-primary-foreground" />
           </div>
-          {!collapsed && (
+          {(!collapsed || mobileOpen) && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -179,6 +204,7 @@ export const DashboardSidebar = ({ collapsed: initialCollapsed = false }: Dashbo
             >
               <NavLink
                 to={`${basePath}/${item.path}`}
+                onClick={onMobileClose}
                 className={({ isActive }) =>
                   cn(
                     "flex items-center gap-3 px-3 py-2 rounded-lg transition-colors",
@@ -189,7 +215,7 @@ export const DashboardSidebar = ({ collapsed: initialCollapsed = false }: Dashbo
                 }
               >
                 <item.icon className="h-5 w-5 flex-shrink-0" />
-                {!collapsed && <span className="text-sm font-medium">{item.name}</span>}
+                {(!collapsed || mobileOpen) && <span className="text-sm font-medium">{item.name}</span>}
               </NavLink>
             </motion.div>
           ))}
@@ -198,7 +224,7 @@ export const DashboardSidebar = ({ collapsed: initialCollapsed = false }: Dashbo
 
       {/* User Profile & Logout */}
       <div className="p-4 border-t border-sidebar-border space-y-2">
-        {!collapsed && user && (
+        {(!collapsed || mobileOpen) && user && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -215,9 +241,10 @@ export const DashboardSidebar = ({ collapsed: initialCollapsed = false }: Dashbo
           onClick={logout}
         >
           <LogOut className="h-5 w-5 flex-shrink-0" />
-          {!collapsed && <span className="ml-3">Logout</span>}
+          {(!collapsed || mobileOpen) && <span className="ml-3">Logout</span>}
         </Button>
       </div>
-    </motion.div>
+    </motion.aside>
+    </>
   );
 };

@@ -1,3 +1,4 @@
+import { useOutletContext } from "react-router-dom";
 import { DashboardHeader } from "@/components/shared/DashboardHeader";
 import { StatCard } from "@/components/shared/StatCard";
 import { Users, Shield, Building2, Briefcase, AlertCircle, CheckCircle2, X, Plus, Search } from "lucide-react";
@@ -51,6 +52,7 @@ const extendedDummyData = {
 };
 
 const SuperAdminDashboard = () => {
+  const { onMenuClick } = useOutletContext<{ onMenuClick: () => void }>();
   const [stats, setStats] = useState(extendedDummyData.dashboardStats.superadmin);
   const [activities, setActivities] = useState(extendedDummyData.recentActivities);
   const [leaves, setLeaves] = useState(extendedDummyData.leaveRequests);
@@ -331,6 +333,7 @@ const SuperAdminDashboard = () => {
       <DashboardHeader 
         title="Super Admin Dashboard" 
         subtitle="Complete system overview and management"
+        onMenuClick={onMenuClick}
       />
 
       <div className="p-6 space-y-6">

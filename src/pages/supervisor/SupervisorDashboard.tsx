@@ -1,9 +1,11 @@
+import { useOutletContext } from "react-router-dom";
 import { DashboardHeader } from "@/components/shared/DashboardHeader";
 import { StatCard } from "@/components/shared/StatCard";
 import { Users, ClipboardList, CheckCircle2, FileText } from "lucide-react";
 import { dashboardStats } from "@/utils/dummyData";
 
 const SupervisorDashboard = () => {
+  const { onMenuClick } = useOutletContext<{ onMenuClick: () => void }>();
   const stats = dashboardStats.supervisor;
 
   return (
@@ -11,6 +13,7 @@ const SupervisorDashboard = () => {
       <DashboardHeader 
         title="Supervisor Dashboard" 
         subtitle="Manage employees and daily operations"
+        onMenuClick={onMenuClick}
       />
 
       <div className="p-6 space-y-6">

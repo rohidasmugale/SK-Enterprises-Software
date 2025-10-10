@@ -1,9 +1,11 @@
+import { useOutletContext } from "react-router-dom";
 import { DashboardHeader } from "@/components/shared/DashboardHeader";
 import { StatCard } from "@/components/shared/StatCard";
 import { ClipboardList, CheckCircle2, Calendar, Clock } from "lucide-react";
 import { dashboardStats } from "@/utils/dummyData";
 
 const EmployeeDashboard = () => {
+  const { onMenuClick } = useOutletContext<{ onMenuClick: () => void }>();
   const stats = dashboardStats.employee;
 
   return (
@@ -11,6 +13,7 @@ const EmployeeDashboard = () => {
       <DashboardHeader 
         title="Employee Dashboard" 
         subtitle="View your tasks and attendance"
+        onMenuClick={onMenuClick}
       />
 
       <div className="p-6 space-y-6">
