@@ -28,13 +28,9 @@ const getSidebarItems = (role: UserRole) => {
 
   switch (role) {
     case "superadmin":
-    case "admin":
       return [
         ...baseItems,
         { name: "Users & Roles", icon: UserCog, path: "users" },
-        // { name: "Managers", icon: Briefcase, path: "managers" },
-        // { name: "Supervisors", icon: Shield, path: "supervisors" },
-        // { name: "Employees", icon: Users, path: "employees" },
         { name: "HRMS", icon: Users, path: "hrms" },
         { name: "CRM", icon: Building2, path: "crm" },
         { name: "ERP", icon: ClipboardList, path: "erp" },
@@ -46,14 +42,26 @@ const getSidebarItems = (role: UserRole) => {
         { name: "Settings", icon: Settings, path: "settings" },
       ];
 
+    case "admin":
+      return [
+        ...baseItems,
+        { name: "Profile", icon: UserCog, path: "profile" },
+        { name: "Team", icon: Users, path: "team" },
+        { name: "Tasks", icon: ClipboardList, path: "tasks" },
+        { name: "Reports", icon: BarChart3, path: "reports" },
+        { name: "Leave", icon: Calendar, path: "leave" },
+        { name: "Notifications", icon: Bell, path: "notifications" },
+        { name: "Settings", icon: Settings, path: "settings" },
+      ];
+
     case "manager":
       return [
         ...baseItems,
+        { name: "Profile", icon: UserCog, path: "profile" },
         { name: "Supervisors", icon: Shield, path: "supervisors" },
         { name: "Team & Tasks", icon: ClipboardList, path: "tasks" },
-        { name: "HRMS", icon: Users, path: "hrms" },
         { name: "Reports", icon: BarChart3, path: "reports" },
-        { name: "Performance", icon: BarChart3, path: "performance" },
+        { name: "Leave", icon: Calendar, path: "leave" },
         { name: "Notifications", icon: Bell, path: "notifications" },
         { name: "Settings", icon: Settings, path: "settings" },
       ];
@@ -61,11 +69,12 @@ const getSidebarItems = (role: UserRole) => {
     case "supervisor":
       return [
         ...baseItems,
+        { name: "Profile", icon: UserCog, path: "profile" },
         { name: "My Tasks", icon: ClipboardList, path: "tasks" },
         { name: "Employees", icon: Users, path: "employees" },
         { name: "Attendance", icon: Calendar, path: "attendance" },
-        { name: "Leave Requests", icon: Calendar, path: "leave" },
-        { name: "Upload Reports", icon: FileText, path: "reports" },
+        { name: "Leave", icon: Calendar, path: "leave" },
+        { name: "Reports", icon: FileText, path: "reports" },
         { name: "Notifications", icon: Bell, path: "notifications" },
         { name: "Settings", icon: Settings, path: "settings" },
       ];

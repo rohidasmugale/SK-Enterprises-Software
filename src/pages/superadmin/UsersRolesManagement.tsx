@@ -399,7 +399,7 @@ const UserList = ({
                     </div>
                   </TableCell>
                   <TableCell>
-                    <Badge variant={getRoleColor(user.role)}>
+                    <Badge variant={getRoleColor(user.role) as "default" | "destructive" | "outline" | "secondary"}>
                       {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
                     </Badge>
                   </TableCell>

@@ -477,13 +477,13 @@ const TasksSection = () => {
                     </TableCell>
                     <TableCell>{getAssigneeName(task.assignedTo)}</TableCell>
                     <TableCell>
-                      <Badge variant={getPriorityColor(task.priority)}>
+                      <Badge variant={getPriorityColor(task.priority) as "default" | "destructive" | "outline" | "secondary"}>
                         {task.priority === "high" && <AlertCircle className="mr-1 h-3 w-3" />}
                         {task.priority}
                       </Badge>
                     </TableCell>
                     <TableCell>
-                      <Badge variant={getStatusColor(task.status)}>
+                      <Badge variant={getStatusColor(task.status) as "default" | "destructive" | "outline" | "secondary"}>
                         {task.status}
                       </Badge>
                     </TableCell>
@@ -820,7 +820,7 @@ const RosterSection = () => {
                 <TableCell>{entry.shiftTiming}</TableCell>
                 <TableCell>{entry.assignedTask}</TableCell>
                 <TableCell>
-                  <Badge variant={getAttendanceColor(entry.attendance)}>
+                  <Badge variant={getAttendanceColor(entry.attendance) as "default" | "destructive" | "outline" | "secondary"}>
                     {entry.attendance === 'present' ? '✓' : entry.attendance === 'absent' ? '✗' : 'H'}
                   </Badge>
                 </TableCell>
@@ -1103,7 +1103,7 @@ const ServicesSection = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <Badge variant={getStatusColor(service.status)}>
+                  <Badge variant={getStatusColor(service.status) as "default" | "destructive" | "outline" | "secondary"}>
                     {service.status}
                   </Badge>
                   <div className="text-sm space-y-1">
@@ -1189,7 +1189,7 @@ const AlertsSection = () => {
                 <TableRow key={alert.id}>
                   <TableCell className="font-medium">{alert.title}</TableCell>
                   <TableCell>
-                    <Badge variant={getSeverityColor(alert.severity)}>
+                    <Badge variant={getSeverityColor(alert.severity) as "default" | "destructive" | "outline" | "secondary"}>
                       {alert.severity}
                     </Badge>
                   </TableCell>

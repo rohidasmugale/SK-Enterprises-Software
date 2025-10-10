@@ -357,7 +357,7 @@ const AllDocumentsSection = () => {
                     <Badge variant="outline">{doc.type}</Badge>
                   </TableCell>
                   <TableCell>
-                    <Badge variant={getCategoryColor(doc.category)}>
+                    <Badge variant={getCategoryColor(doc.category) as "default" | "destructive" | "outline" | "secondary"}>
                       {doc.category}
                     </Badge>
                   </TableCell>

@@ -242,8 +242,12 @@ const SuperAdminDashboard = () => {
       
       const newManager = {
         id: (users.length + 1).toString(),
-        ...managerForm,
-        role: 'manager'
+        name: managerForm.name,
+        email: managerForm.email,
+        role: 'manager',
+        department: managerForm.department,
+        site: managerForm.sites[0] || '',
+        phone: managerForm.phone
       };
       
       setUsers(prev => [...prev, newManager]);

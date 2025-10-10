@@ -122,16 +122,17 @@ const App = () => (
               }
             >
               <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="profile" element={<AdminProfile />} />
+              <Route path="team" element={<AdminTeam />} />
+              <Route path="tasks" element={<AdminTasks />} />
+              <Route path="reports" element={<AdminReports />} />
+              <Route path="leave" element={<AdminLeave />} />
               <Route path="users" element={<div className="p-6"><h1 className="text-2xl font-bold">Users & Roles</h1></div>} />
-              <Route path="managers" element={<div className="p-6"><h1 className="text-2xl font-bold">Managers</h1></div>} />
-              <Route path="supervisors" element={<div className="p-6"><h1 className="text-2xl font-bold">Supervisors</h1></div>} />
-              <Route path="employees" element={<div className="p-6"><h1 className="text-2xl font-bold">Employees</h1></div>} />
               <Route path="hrms" element={<div className="p-6"><h1 className="text-2xl font-bold">HRMS</h1></div>} />
               <Route path="crm" element={<div className="p-6"><h1 className="text-2xl font-bold">CRM</h1></div>} />
               <Route path="erp" element={<div className="p-6"><h1 className="text-2xl font-bold">ERP</h1></div>} />
               <Route path="billing" element={<div className="p-6"><h1 className="text-2xl font-bold">Billing & Finance</h1></div>} />
               <Route path="operations" element={<div className="p-6"><h1 className="text-2xl font-bold">Operations</h1></div>} />
-              <Route path="reports" element={<div className="p-6"><h1 className="text-2xl font-bold">Reports</h1></div>} />
               <Route path="documents" element={<div className="p-6"><h1 className="text-2xl font-bold">Documents</h1></div>} />
               <Route path="notifications" element={<div className="p-6"><h1 className="text-2xl font-bold">Notifications</h1></div>} />
               <Route path="settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1></div>} />
@@ -147,11 +148,11 @@ const App = () => (
               }
             >
               <Route path="dashboard" element={<ManagerDashboard />} />
-              <Route path="supervisors" element={<div className="p-6"><h1 className="text-2xl font-bold">Supervisors</h1></div>} />
-              <Route path="tasks" element={<div className="p-6"><h1 className="text-2xl font-bold">Team & Tasks</h1></div>} />
-              <Route path="hrms" element={<div className="p-6"><h1 className="text-2xl font-bold">HRMS</h1></div>} />
-              <Route path="reports" element={<div className="p-6"><h1 className="text-2xl font-bold">Reports</h1></div>} />
-              <Route path="performance" element={<div className="p-6"><h1 className="text-2xl font-bold">Performance</h1></div>} />
+              <Route path="profile" element={<ManagerProfile />} />
+              <Route path="supervisors" element={<ManagerSupervisors />} />
+              <Route path="tasks" element={<ManagerTasks />} />
+              <Route path="reports" element={<ManagerReports />} />
+              <Route path="leave" element={<ManagerLeave />} />
               <Route path="notifications" element={<div className="p-6"><h1 className="text-2xl font-bold">Notifications</h1></div>} />
               <Route path="settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1></div>} />
             </Route>
@@ -166,11 +167,12 @@ const App = () => (
               }
             >
               <Route path="dashboard" element={<SupervisorDashboard />} />
+              <Route path="profile" element={<SupervisorProfile />} />
               <Route path="tasks" element={<Tasks />} />
               <Route path="employees" element={<SupervisorEmployees />} />
               <Route path="attendance" element={<Attendance />} />
-              <Route path="leave" element={<div className="p-6"><h1 className="text-2xl font-bold">Leave Requests</h1></div>} />
-              <Route path="reports" element={<div className="p-6"><h1 className="text-2xl font-bold">Upload Reports</h1></div>} />
+              <Route path="leave" element={<SupervisorLeave />} />
+              <Route path="reports" element={<SupervisorReports />} />
               <Route path="notifications" element={<Notifications />} />
               <Route path="settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1></div>} />
             </Route>

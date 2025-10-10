@@ -541,10 +541,7 @@ const Billing = () => {
                                 defaultValue={index === 0 ? "10000" : ""}
                               />
                               <div className="col-span-2 flex items-center text-sm text-muted-foreground">
-                                ₹{(
-                                  (parseInt(document.querySelector(`[name="item-${index}-quantity"]`)?.value) || 0) * 
-                                  (parseInt(document.querySelector(`[name="item-${index}-rate"]`)?.value) || 0)
-                                ).toLocaleString()}
+                                ₹{(10 * 10000).toLocaleString()}
                               </div>
                             </div>
                           ))}
