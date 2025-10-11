@@ -57,7 +57,7 @@ const AdminReports = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">6</div>
-              <p className="text-xs text-muted-foreground">Different categories</p>
+              <p className="text-xs text-muted-foreground">Different categoriess</p>
             </CardContent>
           </Card>
         </div>
