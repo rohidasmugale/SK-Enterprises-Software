@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import { DashboardHeader } from "@/components/shared/DashboardHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 
 const Leave = () => {
+  const { onMenuClick } = useOutletContext<{ onMenuClick: () => void }>();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [leaveRequests] = useState([
     { id: 1, type: "Annual Leave", from: "2025-02-10", to: "2025-02-15", days: 5, status: "pending", reason: "Family vacation" },
@@ -27,7 +29,11 @@ const Leave = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <DashboardHeader title="Leave Management" subtitle="Apply for leave" />
+      <DashboardHeader 
+        title="Leave Management" 
+        subtitle="Apply for leave"
+        onMenuClick={onMenuClick}
+      />
       
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
