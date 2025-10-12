@@ -39,6 +39,7 @@ import ERP from "./pages/superadmin/ERP";
 import Billing from "./pages/superadmin/Billing";
 import Reports from "./pages/superadmin/Reports";
 import Settings from "./pages/superadmin/Settings";
+import LeaveManagement from "./pages/superadmin/LeaveManagement";
 
 // Admin Pages
 import AdminProfile from "./pages/admin/Profile";
@@ -46,6 +47,8 @@ import AdminTeam from "./pages/admin/Team";
 import AdminTasks from "./pages/admin/Tasks";
 import AdminReports from "./pages/admin/AdminReports";
 import AdminLeave from "./pages/admin/Leave";
+import AdminNotifications from "./pages/admin/AdminNotifications";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 // Manager Pages
 import ManagerProfile from "./pages/manager/Profile";
@@ -53,22 +56,24 @@ import ManagerSupervisors from "./pages/manager/Supervisors";
 import ManagerTasks from "./pages/manager/ManagerTasks";
 import ManagerReports from "./pages/manager/ManagerReports";
 import ManagerLeave from "./pages/manager/Leave";
+import ManagerNotifications from "./pages/manager/ManagerNotifications";
+import ManagerSettings from "./pages/manager/ManagerSettings";
 
 // Supervisor Pages
 import SupervisorProfile from "./pages/supervisor/Profile";
 import SupervisorReports from "./pages/supervisor/SupervisorReports";
 import SupervisorLeave from "./pages/supervisor/Leave";
-
-// Supervisor Pages
 import Tasks from "./pages/supervisor/Tasks";
 import SupervisorEmployees from "./pages/supervisor/SupervisorEmployees";
 import Attendance from "./pages/supervisor/Attendance";
+import SupervisorSettings from "./pages/supervisor/SupervisorSettings";
 
 // Employee Pages
 import EmployeeTasks from "./pages/employee/EmployeeTasks";
 import EmployeeDocuments from "./pages/employee/EmployeeDocuments";
 import SalarySlip from "./pages/employee/SalarySlip";
 import ApplyLeave from "./pages/employee/ApplyLeave";
+import EmployeeAttendance from "./pages/employee/EmployeeAttendance";
 
 import NotFound from "./pages/NotFound";
 
@@ -110,6 +115,7 @@ const App = () => (
               <Route path="billing" element={<Billing />} />
               <Route path="reports" element={<Reports />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="leave" element={<LeaveManagement />} />
             </Route>
 
             {/* Admin Routes */}
@@ -127,6 +133,8 @@ const App = () => (
               <Route path="tasks" element={<AdminTasks />} />
               <Route path="reports" element={<AdminReports />} />
               <Route path="leave" element={<AdminLeave />} />
+              <Route path="notifications" element={<AdminNotifications />} />
+              <Route path="settings" element={<AdminSettings />} />
               <Route path="users" element={<div className="p-6"><h1 className="text-2xl font-bold">Users & Roles</h1></div>} />
               <Route path="hrms" element={<div className="p-6"><h1 className="text-2xl font-bold">HRMS</h1></div>} />
               <Route path="crm" element={<div className="p-6"><h1 className="text-2xl font-bold">CRM</h1></div>} />
@@ -134,8 +142,6 @@ const App = () => (
               <Route path="billing" element={<div className="p-6"><h1 className="text-2xl font-bold">Billing & Finance</h1></div>} />
               <Route path="operations" element={<div className="p-6"><h1 className="text-2xl font-bold">Operations</h1></div>} />
               <Route path="documents" element={<div className="p-6"><h1 className="text-2xl font-bold">Documents</h1></div>} />
-              <Route path="notifications" element={<div className="p-6"><h1 className="text-2xl font-bold">Notifications</h1></div>} />
-              <Route path="settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1></div>} />
             </Route>
 
             {/* Manager Routes */}
@@ -153,8 +159,8 @@ const App = () => (
               <Route path="tasks" element={<ManagerTasks />} />
               <Route path="reports" element={<ManagerReports />} />
               <Route path="leave" element={<ManagerLeave />} />
-              <Route path="notifications" element={<div className="p-6"><h1 className="text-2xl font-bold">Notifications</h1></div>} />
-              <Route path="settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1></div>} />
+              <Route path="notifications" element={<ManagerNotifications />} />
+              <Route path="settings" element={<ManagerSettings />} />
             </Route>
 
             {/* Supervisor Routes */}
@@ -174,7 +180,7 @@ const App = () => (
               <Route path="leave" element={<SupervisorLeave />} />
               <Route path="reports" element={<SupervisorReports />} />
               <Route path="notifications" element={<Notifications />} />
-              <Route path="settings" element={<div className="p-6"><h1 className="text-2xl font-bold">Settings</h1></div>} />
+              <Route path="settings" element={<SupervisorSettings />} />
             </Route>
 
             {/* Employee Routes */}
@@ -191,7 +197,7 @@ const App = () => (
               <Route path="documents" element={<EmployeeDocuments />} />
               <Route path="salary" element={<SalarySlip />} />
               <Route path="leave" element={<ApplyLeave />} />
-              <Route path="attendance" element={<div className="p-6"><h1 className="text-2xl font-bold">Attendance</h1></div>} />
+              <Route path="attendance" element={<EmployeeAttendance />} />
               <Route path="notifications" element={<Notifications />} />
             </Route>
 
