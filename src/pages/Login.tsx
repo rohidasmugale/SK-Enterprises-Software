@@ -67,7 +67,7 @@ const Login = () => {
             <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
               <Shield className="h-8 w-8 text-primary" />
             </div>
-            <CardTitle className="text-3xl font-bold">SK PROJECT via CICD</CardTitle>
+            <CardTitle className="text-3xl font-bold">SK PROJECT by PTS</CardTitle>
             <CardDescription>Sign in to your account</CardDescription>
           </CardHeader>
           <CardContent>
